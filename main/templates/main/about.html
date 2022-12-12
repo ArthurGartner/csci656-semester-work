@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ABOUT</title>
+</head>
+<body>
+<h1>THis is the about page</h1>
+{% for person in all_persons %}
+    <h2>This is a person</h2>
+{% endfor %}
+
+<hr>
+
+{% for task in all_tasks %}
+    <h2>{{ task.person }}</h2>
+{% endfor %}
+
+<hr>
+
+{% for shopping_item in all_shopping_items %}
+    <h2>{{ shopping_item.simple_description }}</h2>
+{% endfor %}
+</body>
+</html>

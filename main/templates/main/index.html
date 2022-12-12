@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to CSCI 656</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <script src="{% static 'main/index.js' %}"></script>
+</head>
+<body>
+<h1 style="text-align: center">Welcome to CSCI 656</h1>
+<h2 style="text-align: center;">The number from the back-end is {{ number }}</h2>
+
+<div style="text-align: center">
+    <input id="input_item" class="form-control" style="width: 20%; margin: 0 auto; display: inline-block" placeholder="Shopping Item" type="text">
+    <input id="input_store" class="form-control" style="width: 20%; margin: 0 auto; display: inline-block" placeholder="Store" type="text">
+    <input id="input_date" class="form-control" style="width: 20%; margin: 0 auto; display: inline-block" type="date">
+    <button style="margin: 20px;" onclick="say_hello_backend()" class="btn btn-primary">Add item</button>
+</div>
+
+{% for shopping_item in all_shopping_items %}
+    <div class="alert alert-warning" style="margin-left: 20px; margin-right: 20px">
+        Buy {{ shopping_item.item }} (quantity is {{ shopping_item.quantity }} from {{ shopping_item.store }} by {{ shopping_item.buy_date }}
+    </div>
+{% endfor %}
+{##}
+{#{%  for task in all_tasks %}#}
+{#    <div>#}
+{#        {{  task.name }} {{  task.assignee }} {{ task.author }} {{ task.duration_in_minutes }}#}
+{#    </div>#}
+{#{%  endfor %}#}
+{##}
+{#{% for number in list_of_numbers %}#}
+{#    <div style="display: inline-block; text-align: center ;width: 30px; color: indianred; margin: 10px; border: 1px solid lightblue; border-radius: 5px">{{ number }}</div>#}
+{#{% endfor %}#}
+{#</body>#}
+
+<form>{%  csrf_token %}</form>
+
+<script>
+
+</script>
+
+</html>
